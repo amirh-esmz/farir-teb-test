@@ -1,0 +1,19 @@
+.candidate-list {
+    margin: auto;
+}
+
+.candidate-experiences-wrapper {
+    margin-top: 15px;
+}
+
+.candidate-experiences-item {
+    margin: 10px 0;
+}
+
+.candidate-item {
+    border: solid 1px green;
+    margin: 10px 15px 15px;
+    padding: 10px;
+
+    font-size: 14px;
+}

@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  api:
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: .
+      dockerfile: farir-teb-test/Dockerfile
+    ports:
+      - "50001:443"
+
+  sql-db:
+    image: "mcr.microsoft.com/mssql/server"
+    ports:
+      - "1433:1433"
+    volumes:
+      - farir-teb-test-db:/var/opt/mssql
+
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "aUtr*155"
+      MSSQL_PID: "Express"
+
+volumes:
+  farir-teb-test-db:

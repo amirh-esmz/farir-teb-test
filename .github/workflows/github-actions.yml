@@ -41,14 +41,11 @@ jobs:
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
-    # 3) Restore the dependencies and tools of a project or solution.
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore farir-teb-test.sln
 
-    # 4) Build a project or solution and all of its dependencies.
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-
-    # 5) Test a project or solution.
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test farir-teb-test.sln --no-restore --verbosity normal
+
+    - name: publish
+      run: dotnet publish farir-teb-test.sln -c Release -o out

@@ -49,7 +49,4 @@ jobs:
 
     - name: publish
       working-directory: ./back-end
-      run: dotnet publish farir-teb-test.sln -c Release -o out
-      
-    - working-directory: ./back-end/out
-      run: cp -R * C:\Servers\test -force 
+      run: dotnet publish farir-teb-test.sln -c Release -o C:/Servers/test

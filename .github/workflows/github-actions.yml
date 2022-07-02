@@ -49,4 +49,9 @@ jobs:
 
     - name: publish
       working-directory: ./back-end
-      run: dotnet publish farir-teb-test.sln -c Release -o C:/Servers/test
+      run: |
+        dotnet publish farir-teb-test.sln -c Release -o C:/Servers/test
+
+        if((Get-WebAppPoolState -Name $prodAppPool).Value -ne 'Stopped'){
+        Stop-WebAppPool -Name $prodAppPool
+        } 

@@ -53,7 +53,8 @@ jobs:
         dotnet publish farir-teb-test.sln -c Release -o C:/Servers/test
 
         if((Get-WebAppPoolState -Name freesens-dev-back).Value -ne 'Stopped'){
-        Stop-WebAppPool -Name freesens-dev-back
+          Stop-WebAppPool -Name freesens-dev-back
+          Start-Sleep -Seconds 5
         }
         
         Start-WebAppPool -Name freesens-dev-back
